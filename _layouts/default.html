@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+
+  {%- include head.html -%}
+
+  <body>
+    <div id="top"></div>
+    {%- include header.html -%}
+    <main class="page-content" aria-label="Content">
+      
+      {% if page.url contains ".html" %}
+        {% unless page.url contains "search.html" %}
+          <div id="sidebar">
+            <div id="icons">
+              <i id="toTop" class="fa-solid fa-chevron-up close-group" onclick="scrollToTop()">
+                <span class="scroll-up-tooltip">Scroll To Top</span>
+              </i>
+            </div>
+            <div id="toc"></div>
+          </div>
+        {% endunless %}
+      {% endif %}
+      
+      <div class="wrapper">
+        {{ content }}
+      </div>
+    </main>
+
+    {%- include footer.html -%}
+
+  </body>
+
+</html>

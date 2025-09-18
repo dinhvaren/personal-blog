@@ -1,0 +1,32 @@
+title: D1nhvar3n Hack To Learn
+description: >-
+  Personal page to store my CTF/Labs Write-ups.
+url: "https://d1nhvaren-blog.id.vn" # Custom domain
+baseurl: "" # No subpath
+github_username: dinhvaren
+
+theme: minima
+
+collections:
+  posts:
+    output: true
+    permalink: /:title/
+
+plugins:
+  - jekyll-feed
+  - jekyll-toc
+  - jekyll-paginate
+  - jekyll-seo-tag
+
+markdown: kramdown
+paginate: 5
+paginate_path: "/page:num/"
+
+author: "Luong Nguyen Ngoc Dinh"
+email: "dinhlnng2003@gmail.com"
+twitter_username: d1nhvaren
+linkedin_username: dinhvaren
+
+favicon: /favicon.ico
+
+google_analytics: ""

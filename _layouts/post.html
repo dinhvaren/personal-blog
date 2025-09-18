@@ -1,0 +1,54 @@
+---
+layout: default
+---
+
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
+    <div class="sub-info">
+      <p class="post-meta">
+        <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+          {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+          {{ page.date | date: date_format }}
+        </time>
+        {%- if page.author -%}
+        • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card"
+            itemprop="name">{{ page.author }}</span></span>
+        {%- endif -%}
+      </p>
+      <i class="fa-regular fa-folder-open category"></i>
+      <p> {{ page.categories }} </p>
+      <i class="fa-solid fa-tag tags"></i>
+      {%- for tag in page.tags -%}
+        <p class="tag-item"> {{tag}}</p>
+      {%- endfor -%}
+    </div>
+    
+  </header>
+
+
+  <div class="post-content e-content" itemprop="articleBody">
+    {{ content}}
+  </div>
+  <i id="open-toc" class="fa-brands fa-elementor toc-mobile"></i>
+  <div id="mobile-toc-icons">
+    <i id="close-toc" class="fa-solid fa-circle-xmark toc-mobile toc-mobile-close close-group"></i>
+    <i id="toTop-mobile" class="fa-solid fa-circle-chevron-up toc-mobile close-group" onclick="scrollToTop()"></i>
+  </div>
+
+  {%- if site.disqus.shortname -%}
+  {%- include disqus_comments.html -%}
+  {%- endif -%}
+
+  <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
+</article>
+<script src="/assets/js/toc.js"></script>
+<script src="/assets/js/custom.js"></script>
+<script type="text/javascript">
+  $(document).ready(function () {
+    $('#toc').toc({
+      showEffect: 'fadeIn'
+    });
+  });
+</script>
